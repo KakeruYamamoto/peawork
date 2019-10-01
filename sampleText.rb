@@ -4,7 +4,7 @@
 
 # irb
 
-# require '/Users/yamamotoshou/workspace/pea_work/sample.rb'
+require '/Users/yamamotoshou/workspace/pea_work/sample.rb'
 # （↑のパスは、自動販売機ファイルが入っているパスを指定する）
 
 # 初期設定（自動販売機インスタンスを作成して、vmという変数に代入する）
@@ -25,11 +25,14 @@ class VendingMachine
     # ステップ０　お金の投入と払い戻しの例コード
     # ステップ１　扱えないお金の例コード
 
+
+    #ステップ０−１
     # 10円玉、50円玉、100円玉、500円玉、1000円札を１つずつ投入できる。
     MONEY = [10, 50, 100, 500, 1000].freeze
 
     # （自動販売機に投入された金額をインスタンス変数の @slot_money に代入する）
-    def initialize
+
+    def initialize　#ステップ２　ジュースの管理
       # 最初の自動販売機に入っている金額は0円
       @slot_money = 0
 
@@ -85,8 +88,8 @@ class VendingMachine
     end
 
     # 10円玉、50円玉、100円玉、500円玉、1000円札を１つずつ投入できる。
-    # 投入は複数回できる。
-    def slot_money(money)
+
+    def slot_money(money)#   # 投入は複数回できる。
       # 想定外のもの（１円玉や５円玉。千円札以外のお札、そもそもお金じゃないもの（数字以外のもの）など）
       # が投入された場合は、投入金額に加算せず、それをそのまま釣り銭としてユーザに出力する。
       if MONEY.include?(money)
@@ -139,7 +142,7 @@ class VendingMachine
   end
 
   v = VendingMachine.new()
-  c = Cart.new()
-  d = Drink.new()
+  # c = Cart.new()
+  # d = Drink.new()
   p v.get_drinks_info
-  p v.slot_money(100)
+  # p v.slot_money(100)
