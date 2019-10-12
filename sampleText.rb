@@ -119,7 +119,7 @@ class VendingMachine
 
     def initialize(name: nil, price: nil, number: nil)
       return if (name.nil? || price.nil? || number.nil?)
-      self.drinks = Array.new(number) { |i| Drink.new(name: name, price: price) }
+      self.drinks = Array.new(number) { |i| Drink.new(name: name, price: price) }#チェリー本p122
       # [Drink.new(name: "コーラ", price: 120), Drink.new(name: "コーラ", price: 120) , Drink.new(name: "コーラ", price: 120), Drink.new(name: "コーラ", price: 120) ...]
       self.name = name
       self.price = price
