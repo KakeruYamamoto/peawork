@@ -25,13 +25,13 @@ class Vm
 
     # 10円玉、50円玉、100円玉、500円玉、1000円札を１つずつ投入できる。
     MONEY = [10, 50, 100, 500, 1000].freeze
-
+    attr_accessor :carts
     # （自動販売機に投入された金額をインスタンス変数の @slot_money に代入する）
     def initialize
       # 最初の自動販売機に入っている金額は0円
       @slot_money = 0
-      d = Drink.new
-      d.coke
+      @carts = Drink.new
+
     end
 
     # 投入金額の総計を取得できる。
@@ -67,8 +67,10 @@ class Vm
   class Drink
 
     def coke
-      coke = [120,"コーラ",5]
+      coke = {price:120,name:"コーラ"}
+
       coke
+      end
     end
 
     def redbull
